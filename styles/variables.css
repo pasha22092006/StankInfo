@@ -1,0 +1,45 @@
+/*
+  Переменные для вашего проекта
+  и их переопределение под различные устройства
+*/
+
+:root {
+
+  /* цвета */
+
+  --main-color: #fafafaea;
+  --main-alt-color: #222;
+  --text-color: #222;
+  --text-alt-color: #ffffff;
+
+  --bg-color: #ffffff;
+  --bg-alt-color: #222;
+  
+  --btn-color: #fafafaea;
+
+
+  /* отступы */
+  --padding-small-mobile: 10px;
+  --margin-bottom-header: 40px;
+  --margin-bottom-main-section: 20px;
+  --margin-bottom-main-section-text: 10px;
+  --margin-bottom-main-section-tex-after: 50px;
+  --border-radius: 10px;
+
+
+
+  /* шрифты */
+  --font-family: "IBM Plex Mono";
+
+  --font-size-base: 18px;
+
+  --line-height-title: 83%;
+  --line-height-base: 130%;
+
+  --font-weight-M: 700;
+  --font-weight-S: 400;
+  /* другое */
+  --background-image: url("../images/cover-image-dark.png");
+  --height-display: 668px;
+
+}

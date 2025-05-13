@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STANKINFO - Расписание занятий</title>
+  <link rel="stylesheet" href="./styles/variables.css" />
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/schedule.css" />
+  <link rel="icon" href="./logo/Logo Color.svg" type="image/svg+xml" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header_section">
+      <!-- <section class="header_section"> -->
+      <div class="logo">
+        <a class="header_logo" href="index.html"><img src="./logo/Logo Color.svg" alt="Логотип" />
+        </a>
+        <h1>StankInfo</h1>
+      </div>
+
+      <div class="header_nav">
+        <a href="index.html" class="header_link">Главная</a>
+        <a href="schedule.html" class="header_link active">Расписание</a>
+        <a href="money.html" class="header_link">Стипендия</a>
+        <a href="#footer" class="header_link">Информация</a>
+      </div>
+
+      <a href="index.html" class="auth_link">
+        <button class="header_btn">На главную</button>
+      </a>
+    </div>
+    <!-- </section> -->
+  </header>
+
+  <main>
+    <h1 class="welcome">Расписание</h1>
+    <section class="slider-container">
+      <div class="slider-header">
+        <button class="arrow left">&lt;</button>
+        <div class="day-info">
+          <div class="day-name">Понедельник</div>
+          <div class="day-load">
+            <span class="load-indicator"></span>
+            <span class="load-text">Высокая нагрузка</span>
+          </div>
+        </div>
+        <button class="arrow right">&gt;</button>
+      </div>
+      <div class="schedule">
+        <!-- Занятия будут подгружены через JS -->
+      </div>
+    </section>
+
+    <section class="materials-section">
+      <h2>Материалы к подготовке</h2>
+      <div class="materials">
+        <div class="material-card">
+          <h3>Лекции и презентации</h3>
+          <p>Подробные учебные материалы по основным дисциплинам.</p>
+          <button onclick="openPopup('download')">Скачать материалы</button>
+        </div>
+        <div class="material-card">
+          <h3>Требования к экзаменам</h3>
+          <p>Форматы экзаменов, критерии оценки и перечень тем.</p>
+          <button onclick="openPopup('exam')">Ознакомиться</button>
+        </div>
+        <div class="material-card">
+          <h3>Расписание консультаций</h3>
+          <p>
+            Консультации преподавателей по подготовке к зачетам и экзаменам.
+          </p>
+          <button onclick="openPopup('consultation')">
+            Посмотреть расписание
+          </button>
+        </div>
+        <div class="material-card">
+          <h3>Чек-листы подготовки</h3>
+          <p>Проверьте свою готовность к экзаменам с помощью чек-листов.</p>
+          <button onclick="openPopup('checklist')">
+            Перейти к чек-листам
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="footer__containter">
+      <div class="stankin">
+        <img class="footer__logo" src="./img/logo (white).png" alt="" />
+        <p>Министерство науки и высшего образования Российской Федерации</p>
+      </div>
+      <nav class="footer__nav">
+        <strong>ГЛАВНЫЙ КОРПУС МГТУ СТАНКИН</strong>
+        <p>Россия, Москва</p>
+        <p>Адрес приемной комиссии: <br />Вадковский пер., 1</p>
+        <p>Email: <a href="mailto:abitur@stankin.ru">abitur@stankin.ru</a></p>
+        <p>Телефон: <a href="tel:+74999733849">+7 (499) 973 38 49</a></p>
+      </nav>
+
+      <div class="footer__stud">
+        <strong>ПОСТУПАЮЩИМ</strong>
+        <a href="#">Бакалавриат</a>
+        <a href="#">Специалитет</a>
+        <a href="#">Магистратура</a>
+        <a href="#">Аспирантура</a>
+      </div>
+
+      <div class="footer__safety">
+        <strong>БЕЗОПАСНОСТЬ</strong>
+        <a href="#">Минобрнауки РФ</a>
+        <a href="#">Рособрнадзор</a>
+        <a href="#">Российское образование</a>
+        <a href="#">Единое окно доступа</a>
+        <a href="#">Коллекция образовательных ресурсов</a>
+        <a href="#">Противодействие коррупции</a>
+        <a href="#">Обращение граждан</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="popup-close" onclick="closePopup()">&times;</span>
+      <div id="popup-text"></div>
+    </div>
+  </div>
+
+  <script src="./JS/schedule_script.js"></script>
+</body>
+
+</html>

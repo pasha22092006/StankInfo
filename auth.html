@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Форма авторизации</title>
+  <link rel="stylesheet" href="./fonts/fonts.css" />
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/variables.css" />
+  <link rel="stylesheet" href="./styles/auth_style.css" />
+</head>
+
+<body>
+  <form id="auth-form" autocomplete="off" class="auth-form">
+    <label for="name" class="visually-hidden">Имя</label>
+    <input type="text" placeholder="Имя" id="name" name="name" autocomplete="name" />
+
+    <label for="login" class="visually-hidden">Логин</label>
+    <input type="text" placeholder="stud104576" id="login" name="login" autocomplete="login" />
+
+    <label for="password" class="visually-hidden">Пароль</label>
+    <input type="password" placeholder="Пароль" id="password" name="password" />
+
+    <label class="custom-checkbox">
+      <input type="checkbox" id="authorized" name="authorized" />
+      <span class="checkbox-mark"></span>
+      Запомнить меня
+    </label>
+
+    <button type="submit">Войти</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('auth-form');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+
+      if (name !== '') {
+        localStorage.setItem('username', name);
+        form.reset(); // обнуляем поля формы
+        window.location.href = 'index.html';
+      } else {
+        alert("Введите имя!"); // простая валидация
+      }
+    });
+  </script>
+</body>
+
+</html>

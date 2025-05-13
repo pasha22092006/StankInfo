@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./fonts/fonts.css" />
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/variables.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+
+  <link rel="icon" href="./logo/Logo Color.svg" type="image/svg+xml">
+
+  <title>StankInfo</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header_section">
+      <!-- <section class="header_section"> -->
+      <div class="logo"><a class="header_logo" href="index.html"><img src="./logo/Logo Color.svg" alt="Логотип" />
+        </a>
+        <h1>StankInfo</h1>
+      </div>
+
+
+      <div class="header_nav">
+        <a href="index.html" class="header_link active">Главная</a>
+        <a href="schedule.html" class="header_link">Расписание</a>
+        <a href="money.html" class="header_link">Стипендия</a>
+        <a href="#footer" class="header_link">Информация</a>
+      </div>
+
+      <button class="header_btn" id="authBtn">Авторизация</button>
+    </div>
+    <!-- </section> -->
+  </header>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <form id="auth-form" class="auth-form" autocomplete="off">
+        <label for="name" class="visually-hidden">Имя</label>
+        <input type="text" placeholder="Имя" id="name" name="name" autocomplete="name" required />
+
+        <label for="login" class="visually-hidden">Логин</label>
+        <input type="text" placeholder="stud104576" id="login" name="login" autocomplete="login" required />
+
+        <label for="password" class="visually-hidden">Пароль</label>
+        <input type="password" placeholder="Пароль" id="password" name="password" required />
+
+        <label class="custom-checkbox">
+          <input type="checkbox" id="authorized" name="authorized" />
+          <span class="checkbox-mark"></span>
+          <span class="checkbox-label-text">Запомнить меня</span>
+        </label>
+
+        <div class="auth-buttons">
+          <button type="submit">Войти</button>
+          <button type="button" id="close-auth">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <main class="content_section">
+
+
+    <h1 class="welcome" id="slider">Добро пожаловать, <span id="username"> гость</span>!</h1>
+    <section class="about">
+      <!-- <h2 class="about-heading">Возможности сайта</h2> -->
+      <ul class="about-card-list">
+
+        <li class="about-card-list-item">
+          <a class="card-link" href="schedule.html">
+            <article class="card card-type-film">
+              <div class="overlay"></div>
+              <img src="./img/calendar.png" alt="" class="card-img">
+              <h3 class="card-title">удобное расписание</h3>
+              <p class="card-desc">Следи за своим расписанием и изменениями без лишних усилий.</p>
+            </article>
+          </a>
+        </li>
+
+        <li class="about-card-list-item">
+          <a class="card-link" href="money.html">
+            <article class="card card-type-book">
+              <div class="overlay"></div>
+              <img src="img/calculator.png" alt="" class="card-img">
+              <h3 class="card-title">калькулятор стипендии</h3>
+              <p class="card-desc">Узнай свою стипендию за пару кликов — быстро и точно.</p>
+            </article>
+          </a>
+        </li>
+
+        <li class="about-card-list-item">
+          <a class="card-link" href="#slider">
+            <article class="card card-type-picture">
+              <div class="overlay"></div>
+              <img src="./img/newspaper.png" alt="" class="card-img">
+              <h3 class="card-title">актуальные новости университета</h3>
+              <p class="card-desc">Будь в курсе всех мероприятий и изменений в учебном процессе.</p>
+            </article>
+          </a>
+        </li>
+
+      </ul>
+
+      </ul>
+      <div class="slider">
+        <div class="slides">
+          <div class="slide active">
+            <img src="./img/baner1.jpg" alt="Слайд 1">
+            <div class="caption">
+              <h2>Мечтай, учись, твори!</h2>
+              <p>Университет «СТАНКИН» — один из ведущих технических вузов России.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="./img/Приоритет 2030.png" alt="Слайд 2">
+            <div class="caption">
+              <h2>Приоритет 2030</h2>
+              <p>Присоединяйтесь к будущему вместе со СТАНКИН.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="./img/откр двери.png" alt="Слайд 3">
+            <div class="caption">
+              <h2>День открытых дверей</h2>
+              <p>Познакомьтесь с инженерными направлениями и инфраструктурой Университета.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const username = localStorage.getItem('username');
+    const usernameSpan = document.getElementById('username');
+    const authBtn = document.getElementById('authBtn');
+    const modal = document.getElementById('modal');
+    const closeBtn = document.getElementById('close-auth');
+    const form = document.getElementById('auth-form');
+
+    function setAuthorizedState(name) {
+      usernameSpan.textContent = name;
+      authBtn.textContent = 'Выйти';
+      authBtn.onclick = () => {
+        localStorage.clear();
+        setGuestState();
+      };
+    }
+
+    function setGuestState() {
+      usernameSpan.textContent = 'гость';
+      authBtn.textContent = 'Авторизация';
+      authBtn.onclick = () => modal.classList.remove('hidden');
+    }
+
+    if (username) {
+      setAuthorizedState(username);
+    } else {
+      setGuestState();
+    }
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      form.reset();
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      if (name) {
+        localStorage.setItem('username', name);
+        setAuthorizedState(name);
+        form.reset();
+        modal.classList.add('hidden');
+      } else {
+        alert("Введите имя!");
+      }
+    });
+  </script>
+
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // Отписываемся после появления (для оптимизации)
+        }
+      });
+    }, {
+      threshold: 0.2 // карточка должна быть видна хотя бы на 20%
+    });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+
+
+  <script src="./JS/slider.js"></script>
+
+
+  <footer class="footer" id="footer">
+    <div class="footer__containter">
+      <div class="stankin">
+        <img class="footer__logo" src="./img/logo (white).png" alt="">
+        <p>Министерство науки и высшего образования Российской Федерации</p>
+      </div>
+      <nav class="footer__nav">
+        <strong>ГЛАВНЫЙ КОРПУС МГТУ СТАНКИН</strong>
+        <p>Россия, Москва</p>
+        <p>Адрес приемной комиссии: <br>Вадковский пер., 1</p>
+        <p>Email: <a href="mailto:abitur@stankin.ru">abitur@stankin.ru</a></p>
+        <p>Телефон: <a href="tel:+74999733849">+7 (499) 973 38 49</a></p>
+      </nav>
+
+      <div class="footer__stud">
+        <strong>ПОСТУПАЮЩИМ</strong>
+        <a href="#">Бакалавриат</a>
+        <a href="#">Специалитет</a>
+        <a href="#">Магистратура</a>
+        <a href="#">Аспирантура</a>
+      </div>
+
+      <div class="footer__safety">
+        <strong>БЕЗОПАСНОСТЬ</strong>
+        <a href="#">Минобрнауки РФ</a>
+        <a href="#">Рособрнадзор</a>
+        <a href="#">Российское образование</a>
+        <a href="#">Единое окно доступа</a>
+        <a href="#">Коллекция образовательных ресурсов</a>
+        <a href="#">Противодействие коррупции</a>
+        <a href="#">Обращение граждан</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
