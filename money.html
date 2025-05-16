@@ -1,254 +1,240 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Информация о стипендиях | Университет</title>
-    <meta
-      name="description"
-      content="Узнайте о размерах стипендий в зависимости от вашего академического рейтинга"
-    />
 
-    <link rel="stylesheet" href="./styles/global.css" />
-    <link rel="stylesheet" href="./styles/variables.css" />
-    <link rel="stylesheet" href="./styles/money.css" />
-    <link rel="icon" href="./logo/Logo Color.svg" type="image/svg+xml" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Информация о стипендиях | Университет</title>
+  <meta name="description" content="Узнайте о размерах стипендий в зависимости от вашего академического рейтинга" />
 
-  <body>
-    <header class="header">
-      <div class="header_section">
-        <!-- <section class="header_section"> -->
-        <div class="logo">
-          <a class="header_logo" href="index.html"
-            ><img src="./logo/Logo Color.svg" alt="Логотип" />
-          </a>
-          <h1>StankInfo</h1>
-        </div>
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/variables.css" />
+  <link rel="stylesheet" href="./styles/money.css" />
+  <link rel="icon" href="./logo/Logo Color.svg" type="image/svg+xml" />
+</head>
 
-        <div class="header_nav">
-          <a href="index.html" class="header_link">Главная</a>
-          <a href="schedule.html" class="header_link">Расписание</a>
-          <a href="money.html" class="header_link active">Стипендия</a>
-          <a href="#footer" class="header_link">Информация</a>
-        </div>
-
-        <a href="index.html" class="auth_link">
-          <button class="header_btn" id="">На главную</button>
+<body>
+  <header class="header">
+    <div class="header_section">
+      <!-- <section class="header_section"> -->
+      <div class="logo">
+        <a class="header_logo" href="index.html"><img src="./logo/Logo Color.svg" alt="Логотип" />
         </a>
+        <h1>StankInfo</h1>
       </div>
-      <!-- </section> -->
-    </header>
 
-    <main class="container">
-      <div class="breadcrumbs"></div>
+      <div class="header_nav">
+        <a href="index.html" class="header_link">Главная</a>
+        <a href="schedule.html" class="header_link">Расписание</a>
+        <a href="money.html" class="header_link active">Стипендия</a>
+        <a href="#footer" class="header_link">Информация</a>
+      </div>
 
-      <h1 class="welcome">Информация о стипендиях</h1>
+      <a href="index.html" class="auth_link">
+        <button class="header_btn" id="">На главную</button>
+      </a>
+    </div>
+    <!-- </section> -->
+  </header>
 
-      <div class="content-wrapper">
-        <div class="left-section">
-          <div class="info-card">
-            <div class="slider-container">
-              <label for="rating-slider">
-                <i class="fas fa-chart-line"></i> Ваш текущий рейтинг:
-              </label>
-              <div class="slider-wrapper">
-                <input
-                  type="range"
-                  id="rating-slider"
-                  min="35"
-                  max="50"
-                  value="35"
-                  step="1"
-                />
-                <span id="slider-value">35</span>
-              </div>
-            </div>
+  <main class="container">
+    <div class="breadcrumbs"></div>
 
-            <div class="table-responsive">
-              <table>
-                <thead>
-                  <tr>
-                    <th><i class="fas fa-star"></i> Рейтинг</th>
-                    <th>
-                      <i class="fas fa-money-bill-wave"></i> Размер стипендии
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="scholarship-data">
-                  <!-- Данные будут вставлены с помощью JavaScript -->
-                </tbody>
-              </table>
-            </div>
+    <h1 class="welcome">Информация о стипендиях</h1>
 
-            <div class="button-group">
-              <button class="primary-btn" onclick="calculateScholarship()">
-                <i class="fas fa-calculator"></i> Рассчитать стипендию
-              </button>
-              <button
-                class="secondary-btn primary-btn"
-                onclick="showTipsModal()"
-              >
-                <i class="fas fa-lightbulb"></i> Как повысить рейтинг?
-              </button>
+    <div class="content-wrapper">
+      <div class="left-section">
+        <div class="info-card">
+          <div class="slider-container">
+            <label for="rating-slider">
+              <i class="fas fa-chart-line"></i> Ваш текущий рейтинг:
+            </label>
+            <div class="slider-wrapper">
+              <input type="range" id="rating-slider" min="35" max="50" value="35" step="1" />
+              <span id="slider-value">35</span>
             </div>
           </div>
-        </div>
 
-        <div class="right-section">
-          <div class="visualization">
-            <div class="stats-card">
-              <h3><i class="fas fa-chart-pie"></i> Статистика</h3>
-              <div class="stat-item">
-                <span>Средний рейтинг:</span>
-                <span class="value">42.5</span>
-              </div>
-              <div class="stat-item">
-                <span>Максимальная стипендия:</span>
-                <span class="value">5500 ₽</span>
-              </div>
-              <div class="stat-item">
-                <span>Получают стипендию:</span>
-                <span class="value">78%</span>
-              </div>
-            </div>
-            <div class="additional-info">
-              <div class="info-item">
-                <i class="fas fa-calendar-alt"></i>
-                <div>
-                  <h4>Сроки выплат</h4>
-                  <p>Стипендия выплачивается 25 числа каждого месяца</p>
-                </div>
-              </div>
-              <div class="info-item">
-                <i class="fas fa-file-alt"></i>
-                <div>
-                  <h4>Документы</h4>
-                  <p>Для получения стипендии необходимо подать заявление</p>
-                </div>
-              </div>
-            </div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th><i class="fas fa-star"></i> Рейтинг</th>
+                  <th>
+                    <i class="fas fa-money-bill-wave"></i> Размер стипендии
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="scholarship-data">
+                <!-- Данные будут вставлены с помощью JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="button-group">
+            <button class="primary-btn" onclick="calculateScholarship()">
+              <i class="fas fa-calculator"></i> Рассчитать стипендию
+            </button>
+            <button class="secondary-btn primary-btn" onclick="showTipsModal()">
+              <i class="fas fa-lightbulb"></i> Как повысить рейтинг?
+            </button>
           </div>
         </div>
       </div>
-      <h2 class="materials-section">Полезные советы</h2>
-      <div class="text-blocks">
-        <div class="text-block">
-          <div class="icon"><i class="fas fa-info-circle"></i></div>
-          <h3 class="text-block_title">Дополнительная информация</h3>
-          <p>
-            Стипендия – это не только финансовая поддержка, но и признание ваших
-            академических достижений. Мы стремимся поощрять студентов, которые
-            демонстрируют выдающиеся результаты в учебе и активно участвуют в
-            жизни университета.
-          </p>
-          <a href="#" class="read-more"
-            >Подробнее <i class="fas fa-arrow-right"></i
-          ></a>
-        </div>
-        <div class="text-block">
-          <div class="icon"><i class="fas fa-trophy"></i></div>
-          <h3 class="text-block_title">Как повысить свой рейтинг?</h3>
-          <p>
-            Для повышения рейтинга важно активно участвовать в учебной и
-            внеучебной деятельности. Посещайте все лекции и семинары, выполняйте
-            задания в срок и участвуйте в научных конференциях.
-          </p>
-          <div class="tags">
-            <span class="tag">Участие в научных работах</span>
-            <span class="tag">Участие в научных работах</span>
-            <span class="tag">Спортивные достижения</span>
-          </div>
-        </div>
-        <div class="text-block">
-          <div class="icon"><i class="fas fa-gem"></i></div>
-          <h3 class="text-block_title">Дополнительные возможности</h3>
-          <p>
-            Помимо академической стипендии, университет предлагает различные
-            гранты и стипендии за достижения в спорте, искусстве и общественной
-            деятельности.
-          </p>
-          <div class="tags">
-            <span class="tag">Гранты</span>
-            <span class="tag">Социальная поддержка</span>
-            <span class="tag">Именные стипендии</span>
-          </div>
-        </div>
-      </div>
-    </main>
 
-    <!-- Модальное окно -->
-    <div id="tipsModal" class="modal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2><i class="fas fa-lightbulb"></i> Как повысить рейтинг?</h2>
-        <div class="modal-body">
-          <div class="tip-card">
-            <div class="tip-number">1</div>
-            <h4>Академическая успеваемость</h4>
-            <p>
-              Старайтесь получать максимальные оценки по всем предметам.
-              Посещаемость также влияет на рейтинг.
-            </p>
+      <div class="right-section">
+        <div class="visualization">
+          <div class="stats-card">
+            <h3><i class="fas fa-chart-pie"></i> Статистика</h3>
+            <div class="stat-item">
+              <span>Средний рейтинг:</span>
+              <span class="value">42.5</span>
+            </div>
+            <div class="stat-item">
+              <span>Максимальная стипендия:</span>
+              <span class="value">5500 ₽</span>
+            </div>
+            <div class="stat-item">
+              <span>Получают стипендию:</span>
+              <span class="value">78%</span>
+            </div>
           </div>
-          <div class="tip-card">
-            <div class="tip-number">2</div>
-            <h4>Научная деятельность</h4>
-            <p>
-              Участвуйте в конференциях, публикуйте статьи и работайте над
-              исследовательскими проектами.
-            </p>
-          </div>
-          <div class="tip-card">
-            <div class="tip-number">3</div>
-            <h4>Внеучебная активность</h4>
-            <p>
-              Спортивные достижения, участие в студенческих организациях и
-              волонтерство повышают рейтинг.
-            </p>
+          <div class="additional-info">
+            <div class="info-item">
+              <i class="fas fa-calendar-alt"></i>
+              <div>
+                <h4>Сроки выплат</h4>
+                <p>Стипендия выплачивается 25 числа каждого месяца</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-file-alt"></i>
+              <div>
+                <h4>Документы</h4>
+                <p>Для получения стипендии необходимо подать заявление</p>
+              </div>
+            </div>
           </div>
         </div>
-        <button class="primary-btn" onclick="closeModal()">
-          <i class="fas fa-check"></i> Понятно
-        </button>
       </div>
     </div>
-
-    <footer class="footer" id="footer">
-      <div class="footer__containter">
-        <div class="stankin">
-          <img class="footer__logo" src="./img/logo (white).png" alt="" />
-          <p>Министерство науки и высшего образования Российской Федерации</p>
-        </div>
-        <nav class="footer__nav">
-          <strong>ГЛАВНЫЙ КОРПУС МГТУ СТАНКИН</strong>
-          <p>Россия, Москва</p>
-          <p>Адрес приемной комиссии: <br />Вадковский пер., 1</p>
-          <p>Email: <a href="mailto:abitur@stankin.ru">abitur@stankin.ru</a></p>
-          <p>Телефон: <a href="tel:+74999733849">+7 (499) 973 38 49</a></p>
-        </nav>
-
-        <div class="footer__stud">
-          <strong>ПОСТУПАЮЩИМ</strong>
-          <a href="#">Бакалавриат</a>
-          <a href="#">Специалитет</a>
-          <a href="#">Магистратура</a>
-          <a href="#">Аспирантура</a>
-        </div>
-
-        <div class="footer__safety">
-          <strong>БЕЗОПАСНОСТЬ</strong>
-          <a href="#">Минобрнауки РФ</a>
-          <a href="#">Рособрнадзор</a>
-          <a href="#">Российское образование</a>
-          <a href="#">Единое окно доступа</a>
-          <a href="#">Коллекция образовательных ресурсов</a>
-          <a href="#">Противодействие коррупции</a>
-          <a href="#">Обращение граждан</a>
+    <h2 class="materials-section">Полезные советы</h2>
+    <div class="text-blocks">
+      <div class="text-block">
+        <div class="icon"><i class="fas fa-info-circle"></i></div>
+        <h3 class="text-block_title">Дополнительная информация</h3>
+        <p>
+          Стипендия – это не только финансовая поддержка, но и признание ваших
+          академических достижений. Мы стремимся поощрять студентов, которые
+          демонстрируют выдающиеся результаты в учебе и активно участвуют в
+          жизни университета.
+        </p>
+        <a href="#" class="read-more">Подробнее <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="text-block">
+        <div class="icon"><i class="fas fa-trophy"></i></div>
+        <h3 class="text-block_title">Как повысить свой рейтинг?</h3>
+        <p>
+          Для повышения рейтинга важно активно участвовать в учебной и
+          внеучебной деятельности. Посещайте все лекции и семинары, выполняйте
+          задания в срок и участвуйте в научных конференциях.
+        </p>
+        <div class="tags">
+          <span class="tag">Участие на конференциях</span>
+          <span class="tag">Участие в научных работах</span>
+          <span class="tag">Спортивные достижения</span>
         </div>
       </div>
-    </footer>
+      <div class="text-block">
+        <div class="icon"><i class="fas fa-gem"></i></div>
+        <h3 class="text-block_title">Дополнительные возможности</h3>
+        <p>
+          Помимо академической стипендии, университет предлагает различные
+          гранты и стипендии за достижения в спорте, искусстве и общественной
+          деятельности.
+        </p>
+        <div class="tags">
+          <span class="tag">Гранты</span>
+          <span class="tag">Социальная поддержка</span>
+          <span class="tag">Именные стипендии</span>
+        </div>
+      </div>
+    </div>
+  </main>
 
-    <script src="./JS/money.js"></script>
-  </body>
+  <!-- Модальное окно -->
+  <div id="tipsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2><i class="fas fa-lightbulb"></i> Как повысить рейтинг?</h2>
+      <div class="modal-body">
+        <div class="tip-card">
+          <div class="tip-number">1</div>
+          <h4>Академическая успеваемость</h4>
+          <p>
+            Старайтесь получать максимальные оценки по всем предметам.
+            Посещаемость также влияет на рейтинг.
+          </p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">2</div>
+          <h4>Научная деятельность</h4>
+          <p>
+            Участвуйте в конференциях, публикуйте статьи и работайте над
+            исследовательскими проектами.
+          </p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-number">3</div>
+          <h4>Внеучебная активность</h4>
+          <p>
+            Спортивные достижения, участие в студенческих организациях и
+            волонтерство повышают рейтинг.
+          </p>
+        </div>
+      </div>
+      <button class="primary-btn" onclick="closeModal()">
+        <i class="fas fa-check"></i> Понятно
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer" id="footer">
+    <div class="footer__containter">
+      <div class="stankin">
+        <img class="footer__logo" src="./img/logo (white).png" alt="" />
+        <p>Министерство науки и высшего образования Российской Федерации</p>
+      </div>
+      <nav class="footer__nav">
+        <strong>ГЛАВНЫЙ КОРПУС МГТУ СТАНКИН</strong>
+        <p>Россия, Москва</p>
+        <p>Адрес приемной комиссии: <br />Вадковский пер., 1</p>
+        <p>Email: <a href="mailto:abitur@stankin.ru">abitur@stankin.ru</a></p>
+        <p>Телефон: <a href="tel:+74999733849">+7 (499) 973 38 49</a></p>
+      </nav>
+
+      <div class="footer__stud">
+        <strong>ПОСТУПАЮЩИМ</strong>
+        <a href="#">Бакалавриат</a>
+        <a href="#">Специалитет</a>
+        <a href="#">Магистратура</a>
+        <a href="#">Аспирантура</a>
+      </div>
+
+      <div class="footer__safety">
+        <strong>БЕЗОПАСНОСТЬ</strong>
+        <a href="#">Минобрнауки РФ</a>
+        <a href="#">Рособрнадзор</a>
+        <a href="#">Российское образование</a>
+        <a href="#">Единое окно доступа</a>
+        <a href="#">Коллекция образовательных ресурсов</a>
+        <a href="#">Противодействие коррупции</a>
+        <a href="#">Обращение граждан</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./JS/money.js"></script>
+</body>
+
 </html>

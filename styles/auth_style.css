@@ -11,7 +11,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "IBM Plex mono", sans-serif;
   background-color: var(--bg-color);
 
 }
@@ -97,7 +97,7 @@ input:not([type=checkbox]):focus {
 .checkbox-mark {
   width: 32px;
   height: 32px;
-  border: 2px solid ;
+  border: 2px solid;
   background-color: white;
   display: flex;
   align-items: center;
